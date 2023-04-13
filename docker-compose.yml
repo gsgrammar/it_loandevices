@@ -5,4 +5,4 @@ services:
             - '8002:8000'
         image: dashboard
         restart: always
-        name: loandevices
+        container-name: dashboard-loandevices
