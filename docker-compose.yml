@@ -1,8 +1,8 @@
 version: '3.3'
 services:
-    loandevices:
+    app:
+        container_name: dashboard-loandevices
         ports:
             - '8002:8000'
         image: dashboard
         restart: always
-        container-name: dashboard-loandevices
