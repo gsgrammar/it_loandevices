@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
 from pathlib import Path
-from main.config import timezone
+from main.config import env_timezone, env_allowed_hosts, env_debug
 import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -25,9 +25,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-#oy(zfc9j@8#uiqk76d78c!@sy)oipi7!uerf5i#f+ec2b-%4p'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = env_debug
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [env_allowed_hosts]
 
 
 # Application definition
@@ -109,7 +109,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = timezone
+TIME_ZONE = env_timezone
 
 USE_I18N = True
 

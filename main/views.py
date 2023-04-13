@@ -1,10 +1,10 @@
 from django.shortcuts import render
 import requests
 import datetime
-from .config import auth_token, api_url
+from .config import env_auth_token, env_api_url
 
-header = {'Authorization': f'Bearer {auth_token}'}
-url = f'{api_url}/api/v1/hardware?search=Loan&sort=name&order=asc'
+header = {'Authorization': f'Bearer {env_auth_token}'}
+url = f'{env_api_url}/api/v1/hardware?search=Loan&sort=name&order=asc'
 
 def home(request):
     loan_devices=[]
