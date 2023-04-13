@@ -2,7 +2,7 @@ version: '3.3'
 services:
     loandevices:
         ports:
-            - '8000:8000'
+            - '8002:8000'
         image: dashboard
         restart: always
         name: loandevices
