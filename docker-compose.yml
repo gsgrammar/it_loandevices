@@ -3,6 +3,5 @@ services:
     loandevices:
         ports:
             - '8000:8000'
+            - '8001:80'
         image: dashboard
-        environment:
-            - TZ=Australia/Perth
