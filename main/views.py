@@ -1,11 +1,14 @@
 from django.shortcuts import render
-import requests,json,datetime
+import requests
+import datetime
+from .config import auth_token, api_url
+
+header = {'Authorization': f'Bearer {auth_token}'}
+url = api_url + "/api/v1/hardware?search=Loan&sort=name&order=asc"
 
 def home(request):
-    headers = #HEADERS
     loan_devices=[]
-    #response = requests.get('http://itam.gsg.wa.edu.au/api/v1/hardware?search=Loan&sort=name&order=asc',headers=headers)
-    response = requests.get('http://itam.gsg.to/api/v1/hardware?search=Loan&sort=name&order=asc',headers=headers)
+    response = requests.get(url,headers=header)
     response_time = response.headers['Date']
     response_json = (response.json()['rows'])
     for x in response_json:
@@ -31,4 +34,5 @@ def home(request):
     return render(request, 'home.html', {
         'data' : loan_devices,
         'date' : response_time
-    })
+    }
+    )
