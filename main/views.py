@@ -4,7 +4,7 @@ import datetime
 from .config import auth_token, api_url
 
 header = {'Authorization': f'Bearer {auth_token}'}
-url = api_url + "/api/v1/hardware?search=Loan&sort=name&order=asc"
+url = f'{api_url}/api/v1/hardware?search=Loan&sort=name&order=asc'
 
 def home(request):
     loan_devices=[]
