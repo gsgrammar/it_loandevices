@@ -1,0 +1,6 @@
+version: '3.3'
+services:
+    loandevices:
+        ports:
+            - '8000:8000'
+        image: loandevices
