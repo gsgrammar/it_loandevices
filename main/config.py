@@ -21,6 +21,7 @@ env_vars = read_env_vars('.env')
 auth_token = env_vars.get('MY_AUTH_TOKEN')
 api_url = env_vars.get('API_URL')
 debug = env_vars.get('DEBUG')
+timezone = env_vars.get('TZ')
 
 # Use the variables in your application
 headers = {'Authorization': f'Bearer {auth_token}'}
