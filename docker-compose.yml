@@ -4,5 +4,5 @@ services:
         container_name: dashboard-loandevices
         ports:
             - '8002:8000'
-        image: dashboard
+        image: loandevices
         restart: always
