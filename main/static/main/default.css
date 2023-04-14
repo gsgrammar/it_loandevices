@@ -1,3 +1,4 @@
+
 .custom {
   color: #007bff;
   background: #000000;
@@ -18,10 +19,20 @@ body {
   text-align: center;
 }
 table {
+  table-layout: fixed;
   border-collapse: collapse;
   width: 100%;
   margin: 0px;
   font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+tbody {
+  display: block;
+  overflow-y: auto;
+  height: calc(100vh - 200px); /* adjust this value as needed */
+}
+tr td {
+  font-size: 1em;
+
 }
 th {
   font-size: 1.5em;
@@ -62,22 +73,6 @@ tr td:nth-child(2) {
 tr td:nth-child(3) {
   width: 8%;
 }
-/*th:nth-child(odd) {
-  font-size: 1.5em !important;
-  text-decoration: underline;
-  background-color: #202020 !important;
-  color: white;
-  padding-top: 20px;
-  padding-bottom: 20px;
-}
-th:nth-child(even) {
-  font-size: 0.5em !important;
-  text-decoration: underline;
-  background-color: #202020 !important;
-  color: white;
-  padding-top: 20px;
-  padding-bottom: 20px;
-}*/
 h1{
   font-size: 7.5em;
   color: white;
@@ -133,4 +128,8 @@ h3{
   font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
   display: inline;
 }
-</style>
+
+#custom {
+  overflow-y: auto;
+  max-height: 100vh;
+}
