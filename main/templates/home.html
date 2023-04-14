@@ -51,37 +51,4 @@
       {% endblock %}
     </div>
   </body>
-  <!-- <script>
-    function adjustFontSize() {
-      var tbody = document.querySelector("tbody");
-      var rows = tbody.querySelectorAll("tr");
-      var maxHeight = tbody.clientHeight;
-      var totalRowHeight = 0;
-      var fontSizes = [];
-
-      // Get the height of the datetime div
-      var datetime = document.querySelector("#datetime");
-      var datetimeHeight = datetime ? datetime.clientHeight : 0;
-
-      // Set the value of the datetime-height custom property
-      document.documentElement.style.setProperty('--datetime-height', datetimeHeight + 'px');
-
-      // Calculate the total height of all rows
-      rows.forEach(function (row) {
-        totalRowHeight += row.clientHeight;
-      });
-
-      // Calculate the font size for each row
-      rows.forEach(function (row) {
-        var fontSize = Math.floor(
-          ((maxHeight - datetimeHeight) / totalRowHeight) * 100
-        );
-        fontSizes.push(fontSize);
-        row.style.fontSize = fontSize + "%";
-      });
-    }
-
-    window.onload = adjustFontSize;
-    window.onresize = adjustFontSize;
-    </script> -->
 </html>

@@ -30,6 +30,7 @@ tr {
   height: calc(100% / var(--row-count));
   font-size: 2em;
   display: table-row;
+  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
   padding: 0;
 }
 
