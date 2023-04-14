@@ -1,60 +1,87 @@
 <!DOCTYPE html>
 <html>
 
-<head>
-  {% load static %}
-  <!-- Required meta tags -->
-  <meta charset="utf-8" />
-  <meta http-equiv="refresh" content="60">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Loan Devices</title>
-  <!--Custom CSS-->
-  <link rel="stylesheet" href="{% static 'main/default.css' %}" type="text/css" />
+  <head>
+    {% load static %}
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta http-equiv="refresh" content="60">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Loan Devices</title>
+    <!--Custom CSS-->
+    <link rel="stylesheet" href="{% static 'main/default.css' %}"
+      type="text/css" />
 
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" 
-   integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog=="
-   crossorigin="anonymous" />
-</head>
+    <link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css"
+      integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog=="
+      crossorigin="anonymous" />
+  </head>
 
-<body>
-  <div id="custom">
-    {% block content %}
-    <table>
-      <tbody>
-	<tr style="display:flex; justify-content: center;">
-		<!--<th colspan="3">{% now "g:iA" %}</th>-->
-		<h1>{% now "g:i" %}<h3> {% now "A"%}</h3></h1>
-		<h2>{% now "l, jS F Y" %}</h2>
-	</tr>
-        {% for Loan_Number,Loan_Date,Loan_Name,Loan_Date_Diff in data %}
-        {% if Loan_Date_Diff > 30 %}
-        <tr style="background:rgba(255,65,54,0.8); color:rgb(32,32,32)">
-        {% elif Loan_Date_Diff >= 15 %}
-        <tr style="background:rgba(255,222,41,0.8); color:rgb(32,32,32) !important">
-        {% elif Loan_Date_Diff == '-1' %}
-        <tr>
-        {% endif %}
-          <td>
-            {{ Loan_Number }}
+  <body>
+    <div id="custom">
+      {% block content %}
+      <table>
+        <tbody>
+          {% for Loan_Number,Loan_Date,Loan_Name,Loan_Date_Diff in data %}
+          {% if Loan_Date_Diff > 30 %}
+          <tr style="background:rgba(255,65,54,0.8); color:rgb(32,32,32)">
+            {% elif Loan_Date_Diff >= 15 %}
+            <tr style="background:rgba(255,222,41,0.8); color:rgb(32,32,32)
+              !important">
+              {% elif Loan_Date_Diff == '-1' %}
+              <tr>
+                {% endif %}
+                <td>
+                  {{ Loan_Number }}
+                </td>
+                <td>
+                  {{ Loan_Name }}
+                </td>
+                <td>
+                  {{ Loan_Date }}
+                </td>
+              </tr>
+
+              {% endfor %}
+            </td>
           </td>
-          <td>
-            {{ Loan_Name }}
-          </td>
-          <td>
-            {{ Loan_Date }}
-          </td>
-        </tr>
+        </tbody>
+      </table>
+      {% endblock %}
+    </div>
+  </body>
+  <!-- <script>
+    function adjustFontSize() {
+      var tbody = document.querySelector("tbody");
+      var rows = tbody.querySelectorAll("tr");
+      var maxHeight = tbody.clientHeight;
+      var totalRowHeight = 0;
+      var fontSizes = [];
 
-        {% endfor %}
-	</td>
-    </td>
-      </tbody>
-    </table>
-    {% endblock %}
-  </div>
-<!--  <div class="footer">
-    <p><i class="fas fa-cloud-showers-heavy"></i> Possible Thunderstorm     <i class="fas fa-temperature-high"></i>  14<span>&#176;</span>c <i class="fas fa-temperature-low"></i>  9<span>&#176;</span>c</p>
-</div> -->
-</body>
+      // Get the height of the datetime div
+      var datetime = document.querySelector("#datetime");
+      var datetimeHeight = datetime ? datetime.clientHeight : 0;
 
+      // Set the value of the datetime-height custom property
+      document.documentElement.style.setProperty('--datetime-height', datetimeHeight + 'px');
+
+      // Calculate the total height of all rows
+      rows.forEach(function (row) {
+        totalRowHeight += row.clientHeight;
+      });
+
+      // Calculate the font size for each row
+      rows.forEach(function (row) {
+        var fontSize = Math.floor(
+          ((maxHeight - datetimeHeight) / totalRowHeight) * 100
+        );
+        fontSizes.push(fontSize);
+        row.style.fontSize = fontSize + "%";
+      });
+    }
+
+    window.onload = adjustFontSize;
+    window.onresize = adjustFontSize;
+    </script> -->
 </html>

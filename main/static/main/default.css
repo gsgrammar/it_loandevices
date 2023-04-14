@@ -1,46 +1,42 @@
-
-.custom {
-  color: #007bff;
-  background: #000000;
-  font-size: 20px;
-  margin: 0%;
-}
-.wrap {
-  margin: 0 auto;
-  display: inline-block;
-  overflow: hidden;
-}
-custom a {
-  font-size: 1.0em !important;
-}
-body {
-  margin: 0%;
-  background: black;
-  text-align: center;
-}
 table {
-  table-layout: fixed;
-  border-collapse: collapse;
   width: 100%;
-  margin: 0px;
-  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+  border-collapse: collapse;
+  table-layout: fixed;
+  height: calc(100vh - 100px); /* Subtract the height of the datetime div from the viewport height */
 }
-tbody {
-  display: block;
-  overflow-y: auto;
-  height: calc(100vh - 200px); /* adjust this value as needed */
+
+td {
+  border: 1px solid black;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
+
 tr td {
   font-size: 1em;
 
 }
-th {
-  font-size: 1.5em;
-  text-decoration: underline;
-  background-color: #202020 !important;
-  color: white;
-  padding-top: 20px;
-  padding-bottom: 20px;
+#custom {
+  overflow-y: auto;
+  max-height: 100vh;
+}
+tbody {
+  height: 100%;
+  display: table;
+  width: 100%;
+}
+
+tr {
+  height: calc(100% / var(--row-count));
+  font-size: 2em;
+  display: table-row;
+  padding: 0;
+}
+
+body {
+  margin: 0%;
+  background: black;
+  text-align: center;
 }
 tr:nth-child(odd) {
   background-color: #c0c0c0;
@@ -51,7 +47,7 @@ tr:nth-child(even) {
   color: white;
 }
 tr {
-  font-size: 4.5em !important;
+  font-size: 3.5em !important;
   font-weight: 750;
 }
 tr td:nth-child(1) {
@@ -89,47 +85,4 @@ h2 {
   margin: 0px;
   text-align: center;
   font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
-}
-h3{
-  font-size: 5.5em;
-  color: white;
-  padding: 0px;
-  margin: 0px;
-  text-align: center;
-  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
-  display: inline;
-}
-.icon::before {
-  display: inline-block;
-  font-style: normal;
-  font-variant: normal;
-  text-rendering: auto;
-  -webkit-font-smoothing: antialiased;
-}
-.ok::before {
-  font-family: "Font Awesome 5 Free"; font-weight: 900; content: "\f118";
-}
-.warning::before {
-  font-family: "Font Awesome 5 Free"; font-weight: 400; content: "\f06a";
-}
-.error::before {
-  font-family: "Font Awesome 5 Brands"; content: "\f071";
-}
-.footer {
-  position: relative;
-  width: 100%;
-  color: white;
-  text-align: center;
-  font-size: 2.5em;
-  color: rgb(255, 255, 255);
-  padding: 0px;
-  margin: 0px;
-  text-align: center;
-  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
-  display: inline;
-}
-
-#custom {
-  overflow-y: auto;
-  max-height: 100vh;
 }
